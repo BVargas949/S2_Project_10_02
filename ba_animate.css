@@ -11,9 +11,21 @@
 
 */
 
+/* The nav Hyperlinks were given specifications to hava a backgroiund that was not displayed, Have two different font colors, and create a transition for when the user hovres over it. Once the user hovers over the hypertext link, the background will increase in size and the font colors will change. The amount needed for the transition was differnet for the image and font color. */
 
 /* Transition Styles */
+nav a {
+    background: url(ba_target.png) center no-repeat;
+    background-size: 0%;
 
+    color: rgb(253, 240, 133);
+    transition: color 0.8s, background-size .3s;
 
+}
+
+nav a:hover {
+    background-size: 100%;
+    color: rgb(244, 130, 130);
+}
 
 /* Animation Styles */
