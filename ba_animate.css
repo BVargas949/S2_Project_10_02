@@ -19,7 +19,7 @@ nav a {
     background-size: 0%;
 
     color: rgb(253, 240, 133);
-    transition: color 0.8s, background-size .3s;
+    transition: color 0.8s, background-size .4s;
 
 }
 
@@ -28,4 +28,126 @@ nav a:hover {
     color: rgb(244, 130, 130);
 }
 
+
+/* There were varius key frames created. The one named "moveRed" was given  different shadows and sizes at various time intervals. These changes were made to affect the redball image to make it move and shrink. The shrinking happens once it looks like it is going to collide with the blue ball.  */
+
 /* Animation Styles */
+
+@keyframes moveRed {
+
+    0% {
+        left: 0px;
+        filter: drop-shadow(-40px 20px 25px rgb(51, 51, 51));
+    }
+
+    49% {
+
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: 380px;
+        filter: drop-shadow(0px 0px 0px rgb(51, 51, 51));
+        transform: scaleX(.4);
+    }
+
+    51% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        left: 0px;
+        filter: drop-shadow(-40px 20px 25px rgb(51, 51, 51));
+    }
+}
+
+/*  The keyframe named "moveBlue" was given different shadows and sizes at various time intervals. These changes were made to affect the blueball image to make it move and shrink. The shrinking happens once it looks like it is going to collide with the red ball.In the final seconds it will move to right far enough for the user to no longer be able to see it. */
+
+@keyframes moveBlue {
+    0% {
+        right: 0px;
+        filter: drop-shadow(40px 20px 25px rgb(51, 51, 51));
+    }
+
+    49% {
+
+        transform: scaleX(1);
+    }
+
+    50% {
+        right: 380px;
+        filter: drop-shadow(0px 0px 0px rgb(51, 51, 51));
+        transform: scaleX(.4);
+    }
+
+    51% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        right: -700px;
+        filter: drop-shadow(120px 20px 40px rgb(51, 51, 51));
+    }
+}
+
+/* The keyframes "showtext" these keyframes focus on making the first div elements appear and disappear at different time intervals.  */
+
+@keyframes showText {
+
+    0% {
+        opacity: 0;
+    }
+
+    49% {
+        opacity: 0;
+    }
+
+    51% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* The keyframes "showtext" these keyframes focus on making the second elements appear and disappear at different time intervals.  */
+@keyframes hideText {
+
+    0% {
+        opacity: 1;
+    }
+
+    49% {
+        opacity: 1;
+    }
+
+    51% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+/* The selectors below all select a differnt element and associate them with a set of keyframes to apply an animation to them. Specifications for how the keyframes should act are listed as follows: last 5 secounds long and infinitly loop (repeat forever). */
+
+img#redBall {
+    animation: moveRed 5s linear infinite;
+}
+
+img#blueBall {
+    animation: moveBlue 5s linear infinite;
+}
+
+div#redSpeed1,
+div#blueSpeed1 {
+    animation: hideText 5s linear infinite;
+}
+
+div#redSpeed2,
+div#blueSpeed2 {
+    animation: showText 5s linear infinite;
+}
